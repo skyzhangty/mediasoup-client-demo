@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { Broadcaster } from './Broadcaster';
+import { Listener } from './Listener';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/broadcaster">
+          <Broadcaster />
+        </Route>
+        <Route path="/listener">
+          <Listener />
+        </Route>
+        <Route path="/">
+          <App />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
