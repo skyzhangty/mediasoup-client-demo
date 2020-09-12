@@ -77,9 +77,9 @@ async function connect(audioElement: HTMLMediaElement | null) {
 
 function sendRequest(type: string, data: any) {
   return new Promise((resolve, reject) => {
-    socket.emit(type, data, (err: any, response: any) => {
-      if (err) {
-        reject(err);
+    socket.emit(type, data, (response: any) => {
+      if (response.error) {
+        reject(response);
       } else {
         resolve(response);
       }
